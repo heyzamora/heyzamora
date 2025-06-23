@@ -468,7 +468,6 @@ if __name__ == '__main__':
 
     if OWNER_ID == {'id': 'MDQ6VXNlcjY5MTcyMjEz'}: # only calculate for user XzuicerJr
         archived_data = add_archive()
-        print(archived_data)
         for index in range(len(total_loc)-1):
             total_loc[index] += archived_data[index]
         contrib_data += archived_data[-1]
