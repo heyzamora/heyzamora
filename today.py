@@ -287,7 +287,8 @@ def add_archive():
     with open('cache/repository_archive.txt', 'r') as f:
         data = f.readlines()
     old_data = data
-    data = data[7:len(data)-3] # remove the comment block    
+    # remove the comment block first 7 lines
+    data = data[7:len(data)]
     added_loc, deleted_loc, added_commits = 0, 0, 0
     contributed_repos = len(data)
     for line in data:
@@ -467,6 +468,7 @@ if __name__ == '__main__':
 
     if OWNER_ID == {'id': 'MDQ6VXNlcjY5MTcyMjEz'}: # only calculate for user XzuicerJr
         archived_data = add_archive()
+        print(archived_data)
         for index in range(len(total_loc)-1):
             total_loc[index] += archived_data[index]
         contrib_data += archived_data[-1]
