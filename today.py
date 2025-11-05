@@ -14,7 +14,7 @@ import hashlib
 # Repository permissions: read:Commit statuses, read:Contents, read:Issues, read:Metadata, read:Pull Requests
 # Issues and pull requests permissions not needed at the moment, but may be used in the future
 HEADERS = {'authorization': 'token '+ os.environ['ACCESS_TOKEN']}
-USER_NAME = os.environ['USER_NAME'] # 'XzuicerJr'
+USER_NAME = os.environ['USER_NAME'] # 'heyzamora'
 QUERY_COUNT = {'user_getter': 0, 'follower_getter': 0, 'graph_repos_stars': 0, 'recursive_loc': 0, 'graph_commits': 0, 'loc_query': 0}
 
 
@@ -448,11 +448,11 @@ def formatter(query_type, difference, funct_return=False, whitespace=0):
 
 if __name__ == '__main__':
     """
-    César Zamora (XzuicerJr)
+    César Zamora (heyzamora)
     """
     print('Calculation times:')
     # define global variable for owner ID and calculate user's creation date
-    # e.g {'id': 'MDQ6VXNlcjY5MTcyMjEz'} and 2019-11-03T21:15:07Z for username 'XzuicerJr'
+    # e.g {'id': 'MDQ6VXNlcjY5MTcyMjEz'} and 2019-11-03T21:15:07Z for username 'heyzamora'
     user_data, user_time = perf_counter(user_getter, USER_NAME)
     OWNER_ID, acc_date = user_data
     formatter('account data', user_time)
@@ -466,7 +466,7 @@ if __name__ == '__main__':
     contrib_data, contrib_time = perf_counter(graph_repos_stars, 'repos', ['OWNER', 'COLLABORATOR', 'ORGANIZATION_MEMBER'])
     follower_data, follower_time = perf_counter(follower_getter, USER_NAME)
 
-    if OWNER_ID == {'id': 'MDQ6VXNlcjY5MTcyMjEz'}: # only calculate for user XzuicerJr
+    if OWNER_ID == {'id': 'MDQ6VXNlcjY5MTcyMjEz'}: # only calculate for user heyzamora
         archived_data = add_archive()
         for index in range(len(total_loc)-1):
             total_loc[index] += archived_data[index]
